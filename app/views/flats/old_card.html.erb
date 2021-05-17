@@ -1,0 +1,9 @@
+<%# OLD CARD IS HERE just for teaching purposes %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= flat['imageUrl'] %>)">
+  <%# <a href="/flats/<%= flat['id']"><%= flat['name'] </a> %>
+  <%# link_to(flat['name'], "/flats/#{flat['id']}")  %>
+  <%= link_to(flat['name'], flat_path(flat['id']))  %>
+    | &nbsp
+  <small>  <%= flat['price'] %> <%= flat['priceCurrency'] %> </small>
+</div>
+

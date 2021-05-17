@@ -1,0 +1,13 @@
+<h1>Welcome to my home page</h1>
+
+<% @flats.each do |flat| %>
+    <%= link_to flat_path(flat['id']) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= flat['imageUrl'] %>)">
+        <%= flat['name'] %>
+        | &nbsp
+        <small>  <%= flat['price'] %> <%= flat['priceCurrency'] %> </small>
+      </div>
+    <% end %>
+<% end %>
+
+
