@@ -3,17 +3,23 @@ require "open-uri"
 class FlatsController < ApplicationController
   def index
     # render index.html.erb
-    url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
-    @flats = JSON.parse(open(url).read)
+    @flats = fetch_flats
   end
 
   def show
-    url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
-    flats = JSON.parse(open(url).read)
+   
+    flats = fetch_flats
 
     id = params[:id].to_i
 
     @flat = flats.find { |flat| flat['id'] == id } 
+  end
+
+  private
+
+  def fetch_flats
+    url = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
+    JSON.parse(open(url).read)
   end
 end
 
